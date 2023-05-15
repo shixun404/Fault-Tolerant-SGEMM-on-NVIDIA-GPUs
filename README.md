@@ -78,3 +78,15 @@ bash gen.sh
 ```
 
 The generated code is located in `kernel/ft_sgemm/include_code_gen`.
+
+# Citation:
+
+To cite this repository:
+```
+@article{wu2023anatomy,
+  title={Anatomy of High-Performance GEMM with Online Fault Tolerance on GPUs},
+  author={Wu, Shixun and Zhai, Yujia and Liu, Jinyang and Huang, Jiajun and Jian, Zizhe and Wong, Bryan M and Chen, Zizhong},
+  journal={arXiv preprint arXiv:2305.01024},
+  year={2023}
+}
+```
