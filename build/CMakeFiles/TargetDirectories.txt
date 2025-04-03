@@ -1,3 +1,0 @@
-/global/homes/s/swu264/Fault-Tolerant-SGEMM-on-NVIDIA-GPUs/build/CMakeFiles/ft_sgemm.dir
-/global/homes/s/swu264/Fault-Tolerant-SGEMM-on-NVIDIA-GPUs/build/CMakeFiles/edit_cache.dir
-/global/homes/s/swu264/Fault-Tolerant-SGEMM-on-NVIDIA-GPUs/build/CMakeFiles/rebuild_cache.dir
