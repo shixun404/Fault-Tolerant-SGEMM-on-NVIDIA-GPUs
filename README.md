@@ -1,8 +1,8 @@
 # Anatomy of High-Performance GEMM with Online Fault Tolerance on GPUs
 ## Install and compile the code by running the following command.
 ```
-git clone https://github.com/ics2023/artifact.git
-make -j4
+git clone  https://github.com/shixun404/Fault-Tolerant-SGEMM-on-NVIDIA-GPUs.git
+mkdir build; cmake ..; make -j
 ```
 ## Test the FT-SGEMM by running the following command.
 ./ft_sgemm `[START_MATRIX_SIZE]` `[END_MATRIX_SIZE]` `[MATRIX_SIZE_INTERVAL]` `[START_KERNEL]` `[END_KERNEL]`

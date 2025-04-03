@@ -241,11 +241,13 @@ __global__  __launch_bounds__(64) void ft_sgemm_large(int M, int N, int K, float
         A += ks * M; 
         B += ks * N; 
         // prefetch the vector from A and B in global memory 
+        if(k + ks < K){
         prefetch_vector_tile_A[0] = *((float4*)A + 0);  
         prefetch_vector_tile_A[1] = *((float4*)A + 1);  
         prefetch_vector_tile_B[0] = *((float4*)B + 0);  
         prefetch_vector_tile_B[1] = *((float4*)B + 1);  
         
+        }
         // inner k loop, 8
         for(kk = 0; kk < ks; ++kk){
             offset_register_kk = ((kk) & 1);

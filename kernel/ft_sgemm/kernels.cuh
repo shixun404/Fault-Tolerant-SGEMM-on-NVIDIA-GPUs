@@ -22,7 +22,7 @@
 #include "./include_code_gen/sgemm_tall.cuh"
 #include "./include_code_gen/sgemm_wide.cuh"
 #include "./include_code_gen/sgemm_huge.cuh"
-#include "./include_code_gen/sgemm_test.cuh"
+// #include "./include_code_gen/sgemm_test.cuh"
 
 #include "./include_code_gen/ft_sgemm_small.cuh"
 #include "./include_code_gen/ft_sgemm_medium.cuh"

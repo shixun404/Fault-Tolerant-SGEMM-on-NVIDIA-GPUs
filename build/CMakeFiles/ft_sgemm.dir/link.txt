@@ -1,0 +1,1 @@
+/opt/cray/pe/gcc/12.2.0/bin/g++ @CMakeFiles/ft_sgemm.dir/objects1.rsp -o ft_sgemm @CMakeFiles/ft_sgemm.dir/linkLibs.rsp -L"/opt/nvidia/hpc_sdk/Linux_x86_64/24.5/cuda/12.4/targets/x86_64-linux/lib/stubs" -L"/opt/nvidia/hpc_sdk/Linux_x86_64/24.5/cuda/12.4/targets/x86_64-linux/lib"

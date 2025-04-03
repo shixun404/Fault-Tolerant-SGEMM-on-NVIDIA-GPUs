@@ -16,6 +16,7 @@
 #define CEIL_DIV(m,n) ( (m) + (n) - 1 ) / (n)
 
 
+
 class saxpy_timer
 {
 public:

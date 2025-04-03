@@ -286,6 +286,7 @@ __global__  __launch_bounds__({total_thread_num}) void '''+ f'''{function_name}'
         A += ks * M; 
         B += ks * N; 
         // prefetch the vector from A and B in global memory 
+        if(k + ks < K){
         '''
     for i in range(global_read_vector_A_length):
         ft_sgemm += f'''prefetch_vector_tile_A[{i}] = *(({global_read_vector_type_A}*)A + {i});  
@@ -295,6 +296,7 @@ __global__  __launch_bounds__({total_thread_num}) void '''+ f'''{function_name}'
         '''
 
     ft_sgemm += '''
+        }
         // inner k loop, 8
         for(kk = 0; kk < ks; ++kk){
             offset_register_kk = ((kk) & 1);

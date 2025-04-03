@@ -18,7 +18,7 @@ int gap_size =  atoi(argv[3]);
 int st_kernel = atoi(argv[4]);  
 int end_kernel = atoi(argv[5]);     
 int kernel_number;
-int num_tests = 20;                            
+int num_tests = 5;                            
 float alpha = 1.0;                      
 float negative_1 = -1.0;                           
 float beta = -1.5;                    
@@ -141,6 +141,7 @@ else if(kernel_number == 6){
     for (int iter = 0; iter < 1; iter++){
     dim3 blockDim(256);    
     dim3 gridDim(CEIL_DIV(M, 128), CEIL_DIV(N, 128));
+    printf("%d, %d, %d, %d, %d\n", gridDim.x, gridDim.y, M, N, K);
     cudaDeviceSynchronize(); 
     sgemm_huge<<<gridDim, blockDim>>>(M, N, K, dA, dB, dC, alpha, beta);  
     }      
@@ -196,6 +197,22 @@ else if(kernel_number == 16){
 else{
     cublasSgemm(handle, CUBLAS_OP_N,CUBLAS_OP_T, M, N, K, &alpha, dA, M, dB, N, &beta, dC, M);
 } 
+ // Check launch error
+ cudaError_t launchErr = cudaGetLastError();
+ if (launchErr != cudaSuccess) {
+     fprintf(stderr, "[Kernel Launch Error] %s\n", cudaGetErrorString(launchErr));
+     exit(EXIT_FAILURE);
+ }
+
+ // Check execution error
+ cudaError_t syncErr = cudaDeviceSynchronize();
+ if (syncErr != cudaSuccess) {
+     fprintf(stderr, "[Kernel Execution Error] %s\n", cudaGetErrorString(syncErr));
+     exit(EXIT_FAILURE);
+ }
+
+ printf("[Kernel Completed Successfully]\n");
+
 cudaDeviceSynchronize();    
 cudaMemcpy(C, dC, sizeof(float) * M * N, cudaMemcpyDeviceToHost);
 cudaDeviceSynchronize();
